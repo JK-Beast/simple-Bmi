@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <H1>BMI Calculator</H1>
+
+    <div class="bmi">
+        <div class="bmiinfo">
+
+            <!-- get the height and weight -->
+
+            <div class="height">
+                <p>Enter You're Height in cm (Centimeter)</p><input type="number" name="" id="height"
+                    placeholder="Enter The Height">
+            </div>
+
+            <div class="weight">
+                <p>Enter You're Weight in Kg (Kilogram)</p><input type="number" name="" id="weight"
+                    placeholder="Enter The Weight">
+            </div>
+
+            <!-- result printing button -->
+
+            <div class="btn">
+                <button id="submit" onclick="ans()">Submit</button>
+            </div>
+
+
+            <!-- display result -->
+            <div class="result">
+                <div class="Rbmi">
+                    <h1 id="rbmi">Enter the Value To Find Your BMI</h1>
+                </div>
+
+                <div class="body">
+                    <h2 id="body">You're To Under Weight / Normal / Over Weight / Obes </h2>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+       // Selecting input fields
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+
+// Selecting output fields
+const bmiOutput = document.getElementById('rbmi');
+const bodyCategory = document.getElementById('body');
+
+// BMI Calculation and Display Function
+function ans() {
+    // Retrieve user inputs and ensure they're numbers
+    const heightInCm = parseFloat(heightInput.value);
+    const weightInKg = parseFloat(weightInput.value);
+
+
+    // Convert height to meters
+    const heightInMeters = heightInCm / 100;
+
+    // Calculate BMI
+    const bmi = (weightInKg / (heightInMeters * heightInMeters)).toFixed(2);
+
+    // Update the result display
+    bmiOutput.textContent = `Your BMI is: ${bmi}`;
+
+    // Determine body category
+    let category = "";
+    if (bmi < 18.5) {
+        category = "You are Underweight.";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+        category = "You have Normal weight.";
+    } else if (bmi >= 25 && bmi < 29.9) {
+        category = "You are Overweight.";
+    } else {
+        category = "You are Obese.";
+    }
+
+    bodyCategory.textContent = category;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
